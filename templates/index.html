@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knot Puzzle Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/context-menu.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Knot Puzzle Game</h1>
+    </header>
+
+    <div class="game-layout">
+        <!-- Left Column: Puzzle Preview and Navigation -->
+        <div id="puzzle-preview-area">
+            <h2>Puzzle Preview</h2>
+            <img id="finished-puzzle-img" src="" alt="Finished Puzzle Preview"> 
+            <div id="puzzle-nav">
+                <button id="prev-puzzle-btn" disabled>&lt;</button>
+                <button id="next-puzzle-btn">&gt;</button>
+            </div>
+            <div id="pieces-tray-wrapper">
+                <h2>Pieces</h2>
+                <div id="pieces-tray">
+                    <!-- Draggable pieces will be loaded here by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Column: Puzzle Board (will become main right column) -->
+        <div id="puzzle-container-wrapper">
+            <div id="puzzle-container">
+                <!-- Puzzle pieces will be dropped here -->
+            </div>
+            <div id="trash-can">
+                <span class="trash-emoji">🗑️</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

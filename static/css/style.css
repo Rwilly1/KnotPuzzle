@@ -1,0 +1,227 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text globally */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+header {
+    width: 100%;
+    background-color: #000000; /* Match body background */
+    padding: 20px 0; /* Increased padding */
+    text-align: center;
+    border-bottom: none; /* Remove border */
+    /* margin-bottom will be handled by flex layout if needed or removed */
+}
+
+header h1 {
+    margin: 0;
+    color: #ffffff; /* White title text */
+    font-size: 2em; /* Larger title */
+}
+
+.game-layout {
+    display: flex;
+    flex-grow: 1; /* Allow game layout to fill remaining vertical space */
+    gap: 30px; /* Space between panels */
+    padding: 30px; /* Overall padding for the game area */
+    width: 100%;
+    max-width: 1800px; /* Max width for very large screens */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#puzzle-preview-area {
+    width: 350px; /* Slightly wider left panel */
+    flex-shrink: 0;
+    background-color: #ffffff; /* White background for left panel */
+    color: #000000; /* Black text for left panel content */
+    padding: 25px;
+    border-radius: 20px; /* More rounded corners */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* height: 100%; */ /* Rely on flex stretch */
+}
+
+#puzzle-preview-area h2 {
+    margin-top: 0;
+    color: #000000; /* Black title text */
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #dddddd; /* Lighter border */
+    padding-bottom: 15px;
+    font-size: 1.4em;
+}
+
+#finished-puzzle-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #cccccc; /* Lighter border for image */
+    border-radius: 10px; /* More rounded */
+    background-color: #f0f0f0; /* Slight off-white for contrast if image is transparent */
+    margin-bottom: 15px;
+}
+
+#puzzle-nav {
+    display: flex;
+    justify-content: center; /* Center the navigation buttons */
+    gap: 10px; /* Add a small gap between the buttons */
+}
+
+#puzzle-nav button {
+    padding: 12px 25px;
+    background-color: #333333; /* Dark gray buttons */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em; /* Adjusted size */
+    transition: background-color 0.3s ease;
+}
+
+#puzzle-nav button:hover {
+    background-color: #555555; /* Lighter gray on hover */
+}
+
+#puzzle-container-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a; /* Very dark gray background for right panel */
+    padding: 25px;
+    border-radius: 20px; /* Match left panel rounding */
+    border: 1px solid #ffffff; /* White border */
+    position: relative;
+    min-width: 0;
+    box-sizing: border-box;
+    /* height: 100%; */ /* Rely on flex stretch */
+}
+
+#puzzle-container {
+    width: 100%; 
+    flex-grow: 1;
+    background-color: #0d0d0d; /* Even darker for puzzle area */
+    border: 1px dashed #444444; /* Subtle dashed border */
+    border-radius: 10px; /* Slightly rounded inner board */
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* #right-sidebar styles removed as the element is deleted */
+
+#trash-can {
+    position: absolute;
+    bottom: 25px; 
+    right: 25px; 
+    width: 120px; 
+    height: 120px; 
+    cursor: pointer;
+    z-index: 100; 
+    transition: transform 0.2s ease;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#trash-can:hover {
+    transform: scale(1.1);
+}
+
+#trash-can.trash-hover {
+    opacity: 0.7;
+}
+
+#trash-can .trash-emoji {
+    font-size: 60px; /* Doubled emoji size */
+    color: #ffffff;
+    display: block; 
+    margin: 0; 
+    line-height: 1; 
+}
+
+#pieces-tray-wrapper {
+    background-color: #f0f0f0; /* Light gray background for pieces tray area */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; /* Add some space from nav if needed */
+}
+
+#pieces-tray-wrapper h2 {
+    margin-top: 0;
+    color: #000000; /* Black text for "Pieces" title */
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#pieces-tray {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    padding: 10px;
+    justify-content: center; /* Center pieces horizontally */
+    overflow-y: auto; 
+    flex-grow: 1; 
+    background-color: #e0e0e0; /* Lighter gray for the tray itself */
+    border-radius: 8px;
+}
+
+.puzzle-piece {
+    max-width: 150px; /* Increased size */
+    max-height: 150px; /* Increased size */
+    margin: 5px;
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    border-radius: 8px; 
+    background-color: transparent; /* PNG only */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* Removed shadow */
+}
+
+#drag-feedback {
+    pointer-events: none;
+    will-change: transform;
+    transition: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#pieces-tray .puzzle-piece {
+    max-width: 150px; /* Increased size for tray pieces */
+    max-height: 150px; /* Increased size for tray pieces */
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */ /* Removed shadow */
+}
+
+.puzzle-piece:active {
+    cursor: grabbing;
+}
+
+.selected-piece {
+    /* border: 2px solid #007bff !important; */ /* Removed border for PNG only look */
+    /* box-shadow: 0 0 12px rgba(0,123,255,0.5); */ /* Removed shadow for PNG only look */
+    opacity: 0.7; /* Example: subtle selection indicator, can be adjusted/removed */
+}
+
+#pieces-tray .puzzle-piece {
+    position: static !important; /* Override absolute positioning if applied by JS on clone */
+    transform: rotate(0deg) !important; /* Reset rotation for tray pieces */
+}
