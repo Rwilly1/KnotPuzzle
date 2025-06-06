@@ -49,12 +49,12 @@ A web-based puzzle game where players arrange and connect knot pieces to solve p
 
 4. Run the application:
    ```bash
-   flask run
+   python app.py
    ```
 
 5. Open your browser and navigate to:
    ```
-   http://127.0.0.1:5000
+   http://127.0.0.1:8080
    ```
 
 ## Game Controls
