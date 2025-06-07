@@ -181,6 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Dragging: ${dragId} with rotation ${rotation}°`);
     }
 
+    // Add double-click handler for piece selection
+    puzzleContainer.addEventListener('dblclick', (event) => {
+        const clickedPiece = event.target.closest('.puzzle-piece');
+        if (clickedPiece) {
+            // Remove selection from previously selected piece
+            if (selectedPiece && selectedPiece !== clickedPiece) {
+                selectedPiece.classList.remove('selected-piece');
+            }
+            
+            // Toggle selection on clicked piece
+            clickedPiece.classList.toggle('selected-piece');
+            selectedPiece = clickedPiece.classList.contains('selected-piece') ? clickedPiece : null;
+        }
+    });
+
     // --- Puzzle Container Drop Logic --- 
     puzzleContainer.addEventListener('dragover', (event) => {
         event.preventDefault(); // Allow drop

@@ -216,9 +216,8 @@ header h1 {
 }
 
 .selected-piece {
-    /* border: 2px solid #007bff !important; */ /* Removed border for PNG only look */
-    /* box-shadow: 0 0 12px rgba(0,123,255,0.5); */ /* Removed shadow for PNG only look */
-    opacity: 0.7; /* Example: subtle selection indicator, can be adjusted/removed */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+    opacity: 1;
 }
 
 #pieces-tray .puzzle-piece {
