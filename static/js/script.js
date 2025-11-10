@@ -595,4 +595,36 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     });
+
+    // --- Instructions Modal Logic ---
+    const instructionsModal = document.getElementById('instructions-modal');
+    const instructionsClose = document.querySelector('.instructions-close');
+    const gameTitle = document.getElementById('game-title');
+
+    // Show instructions on page load
+    instructionsModal.style.display = 'block';
+
+    // Open instructions when clicking the title
+    gameTitle.addEventListener('click', () => {
+        instructionsModal.style.display = 'block';
+    });
+
+    // Close instructions when clicking the X
+    instructionsClose.addEventListener('click', () => {
+        instructionsModal.style.display = 'none';
+    });
+
+    // Close instructions when clicking outside the content
+    instructionsModal.addEventListener('click', (event) => {
+        if (event.target === instructionsModal) {
+            instructionsModal.style.display = 'none';
+        }
+    });
+
+    // Close instructions with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && instructionsModal.style.display === 'block') {
+            instructionsModal.style.display = 'none';
+        }
+    });
 });

@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Knot Puzzle Game</h1>
+        <h1 id="game-title" style="cursor: pointer;">Knot Puzzle Game</h1>
     </header>
 
     <div class="game-layout">
@@ -44,6 +44,54 @@
     <div id="image-modal" class="modal">
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modal-img">
+    </div>
+
+    <!-- Instructions Modal -->
+    <div id="instructions-modal" class="modal">
+        <div class="instructions-content">
+            <span class="modal-close instructions-close">&times;</span>
+            <h2>Knot Puzzle Activity Instructions</h2>
+            <div class="instructions-body">
+                <ol>
+                    <li>
+                        <strong>Look closely at the knot diagram.</strong>
+                        <p>Pay special attention to the crossings — which strand goes over and which goes under.</p>
+                        <ul>
+                            <li>You can enlarge the image if needed by clicking the image then clicking the x to return to the game board.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Drag rope pieces from the piece bank onto the board to begin building.</strong>
+                    </li>
+                    <li>
+                        <strong>Rotate pieces with the arrow keys until they line up with the diagram.</strong>
+                    </li>
+                    <li>
+                        <strong>Adjust crossing order by right-clicking:</strong>
+                        <ul>
+                            <li>Right-click to move a piece above another.</li>
+                            <li>Right-click again to move it below if needed.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Fix any mistakes with the trash can.</strong>
+                        <ul>
+                            <li>Drag extra pieces into the trash can and confirm to delete it.</li>
+                            <li>Double Click the trash can to clear the playing board.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Match the crossings, not the overall aesthetic.</strong>
+                        <p>The exact placement or curve doesn't matter as much as getting the over/under crossings correct.</p>
+                    </li>
+                    <li>
+                        <strong>Finish and move on.</strong>
+                        <p>Once your knot matches the diagram, continue to the next one. There are seven knots in total.</p>
+                    </li>
+                </ol>
+                <p class="instructions-footer">If you have any questions during the activity, please feel free to ask.</p>
+            </div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

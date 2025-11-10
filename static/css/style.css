@@ -272,7 +272,7 @@ header h1 {
     top: 20px;
     right: 40px;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -282,4 +282,114 @@ header h1 {
 .modal-close:hover,
 .modal-close:focus {
     color: #cccccc;
+}
+
+/* Instructions Modal Styles */
+.instructions-content {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    max-height: 95vh;
+    overflow-y: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideDown 0.3s;
+    color: #000000;
+}
+
+@keyframes slideDown {
+    from { 
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to { 
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.instructions-content h2 {
+    margin-top: 0;
+    color: #000000;
+    text-align: center;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 1.8em;
+    padding-top: 5px;
+}
+
+.instructions-body {
+    line-height: 1.4;
+    font-size: 0.95em;
+}
+
+.instructions-body ol {
+    counter-reset: item;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.instructions-body ol > li {
+    counter-increment: item;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 35px;
+}
+
+.instructions-body ol > li::before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333333;
+}
+
+.instructions-body strong {
+    color: #000000;
+    font-size: 1.05em;
+}
+
+.instructions-body p {
+    margin: 4px 0;
+    color: #333333;
+}
+
+.instructions-body ul {
+    margin: 4px 0;
+    padding-left: 20px;
+}
+
+.instructions-body ul li {
+    margin: 3px 0;
+    color: #333333;
+}
+
+.instructions-footer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #dddddd;
+    text-align: center;
+    font-style: italic;
+    color: #666666;
+    font-size: 0.9em;
+}
+
+.instructions-close {
+    color: #333333;
+    top: 10px;
+    right: 25px;
+}
+
+.instructions-close:hover,
+.instructions-close:focus {
+    color: #000000;
+}
+
+#game-title:hover {
+    opacity: 0.8;
 }
