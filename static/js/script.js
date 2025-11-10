@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finishedPuzzleImg = document.getElementById('finished-puzzle-img');
     const prevPuzzleBtn = document.getElementById('prev-puzzle-btn');
     const nextPuzzleBtn = document.getElementById('next-puzzle-btn');
+    const puzzleTitle = document.getElementById('puzzle-title');
 
     // Preload the transparent drag image
     const emptyDragImage = new Image();
@@ -115,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         finishedPuzzleImg.src = puzzle.previewImage;
         finishedPuzzleImg.alt = puzzle.name + " Preview";
+        
+        // Update puzzle title
+        puzzleTitle.textContent = `Puzzle #${currentPuzzleIndex + 1}`;
         
         puzzleContainer.innerHTML = ''; // Clear the board
         selectedPiece = null; // Deselect any piece
