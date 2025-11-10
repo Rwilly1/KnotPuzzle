@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'puzzle1',
             name: 'Puzzle 1',
-            previewImage: '/static/img/Puzzle1.png', // Corrected filename
+            previewImage: '/static/img/Puzzle1.png',
             availablePieces: [
                 { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
                 { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
@@ -30,14 +30,57 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'puzzle2',
             name: 'Puzzle 2',
-            previewImage: '/static/img/Puzzle2.png', // Corrected filename
+            previewImage: '/static/img/Puzzle2.png',
             availablePieces: [
-                // Assuming same pieces for now, can be customized
+                { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
+                { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
+            ]
+        },
+        {
+            id: 'puzzle3',
+            name: 'Puzzle 3',
+            previewImage: '/static/img/Puzzle3.png',
+            availablePieces: [
+                { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
+                { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
+            ]
+        },
+        {
+            id: 'puzzle4',
+            name: 'Puzzle 4',
+            previewImage: '/static/img/Puzzle4.png',
+            availablePieces: [
+                { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
+                { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
+            ]
+        },
+        {
+            id: 'puzzle5',
+            name: 'Puzzle 5',
+            previewImage: '/static/img/Puzzle5.png',
+            availablePieces: [
+                { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
+                { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
+            ]
+        },
+        {
+            id: 'puzzle6',
+            name: 'Puzzle 6',
+            previewImage: '/static/img/Puzzle6.png',
+            availablePieces: [
+                { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
+                { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
+            ]
+        },
+        {
+            id: 'puzzle7',
+            name: 'Puzzle 7',
+            previewImage: '/static/img/Puzzle7.png',
+            availablePieces: [
                 { id: 'pieceCurve', imgSrc: '/static/img/curve.png', original: true },
                 { id: 'pieceStraight', imgSrc: '/static/img/straight.png', original: true }
             ]
         }
-        // Add more puzzles here
     ];
     let currentPuzzleIndex = 0;
     let currentPuzzlePiecesData = []; // Holds pieces for the *current* puzzle
