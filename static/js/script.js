@@ -542,4 +542,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load - Load the first puzzle
     loadPuzzle(currentPuzzleIndex);
     console.log('Game initialized with puzzle navigation. Arrow key, trash can, and wheel rotation logic active.');
+
+    // --- Image Modal Logic ---
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.querySelector('.modal-close');
+
+    // Open modal when clicking the preview image
+    finishedPuzzleImg.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImg.src = finishedPuzzleImg.src;
+    });
+
+    // Close modal when clicking the X
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
 });
