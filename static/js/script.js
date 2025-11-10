@@ -357,6 +357,29 @@ document.addEventListener('DOMContentLoaded', () => {
         trashCan.classList.remove('trash-hover');
     });
 
+    // --- Double-click Trash Can to Clear Board ---
+    trashCan.addEventListener('dblclick', () => {
+        const piecesOnBoard = puzzleContainer.querySelectorAll('.puzzle-piece');
+        
+        if (piecesOnBoard.length === 0) {
+            console.log('No pieces on board to clear');
+            return;
+        }
+
+        const confirmClear = window.confirm(`Are you sure you want to clear all ${piecesOnBoard.length} piece(s) from the board?`);
+        
+        if (confirmClear) {
+            // Deselect any selected piece
+            if (selectedPiece) {
+                selectedPiece = null;
+            }
+            
+            // Remove all pieces from the board
+            piecesOnBoard.forEach(piece => piece.remove());
+            console.log(`Cleared ${piecesOnBoard.length} pieces from the board`);
+        }
+    });
+
     // --- Piece Selection Logic ---
     function handlePieceSelection(event) {
         const clickedPiece = event.currentTarget; 
